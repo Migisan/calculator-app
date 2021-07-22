@@ -11002,6 +11002,39 @@ img {
   vertical-align: bottom;
 }
 
+.header {
+  padding: 10px 20px;
+  background: linear-gradient(#39C5E6, #0080F1);
+}
+
+.header .header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header .header-inner h1 a {
+  font-size: 32px;
+  color: #fff;
+}
+
+.header .header-inner nav ul {
+  display: flex;
+}
+
+.header .header-inner nav ul li:not(:last-child) {
+  margin-right: 10px;
+}
+
+.header .header-inner nav ul li a {
+  display: inline-block;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 20px;
+}
+
 .calculator {
   max-width: 300px;
   margin: 20px auto 0;
