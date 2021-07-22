@@ -7,7 +7,8 @@
     <title>{{ config('app.name')}}</title>
 
     <!-- Styles -->
-    <script src="{{ mix('css/app.css') }}" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet"></link>
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 

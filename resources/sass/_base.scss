@@ -1,0 +1,45 @@
+html{
+  padding:0px;
+  margin:0px;
+}
+
+body {
+  padding:0px;
+  margin:0px;
+  font-family: $font-main;
+  color: $c-black;
+  background: $c-water;
+  font-size: 16px;
+}
+
+h2,h3,h4,h5,h6{
+  padding: 0;
+  margin: 0;
+}
+
+ul,li,dl,dt,dd,table,tr,th,td{
+  padding: 0;
+  margin: 0;
+}
+
+ul,li{
+  list-style:none;
+}
+
+a{
+  text-decoration: none;
+  color: $c-black;
+  &:hover{
+    text-decoration: none;
+    color: $c-black;
+  }
+}
+
+*{
+  box-sizing: border-box;
+}
+
+img{
+  max-width: 100%;
+  vertical-align: bottom;
+}

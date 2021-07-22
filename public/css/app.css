@@ -10942,3 +10942,122 @@ a.text-dark:focus {
   }
 }
 
+html {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Avenir", "Helvetica Neue", "Helvetica", "Arial", "Hiragino Sans", "\30D2\30E9\30AE\30CE\89D2\30B4\30B7\30C3\30AF", YuGothic, "Yu Gothic", "\30E1\30A4\30EA\30AA", Meiryo, "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", "MS PGothic";
+  color: #333;
+  background: #c9f0ff;
+  font-size: 16px;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+li,
+dl,
+dt,
+dd,
+table,
+tr,
+th,
+td {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+.calculator {
+  max-width: 300px;
+  margin: 20px auto 0;
+  border: 1px solid #999;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0px 0px 16px #999;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.top {
+  height: 100px;
+  margin-bottom: 10px;
+  background: linear-gradient(#39C5E6, #0080F1);
+}
+
+.top input {
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  text-align: right;
+  font-size: 24px;
+}
+
+.items {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.items .item {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 70px;
+  background: #999;
+}
+
+.items .item:hover {
+  opacity: 0.6;
+}
+
+.items .item button {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+}
+
+.result {
+  width: calc(100% - 20px);
+  margin: 10px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
