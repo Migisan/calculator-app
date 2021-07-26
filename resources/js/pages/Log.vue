@@ -21,10 +21,11 @@
             </tr>
           </tbody>
         </table>
-        <div class="pagination">
+        <Pagination :current_page="current_page" :last_page="last_page" @catchPage="changePage"></Pagination>
+        <!-- <div class="pagination">
           <button v-if="!isFirstPage" @click="changePage(-1)" class="btn btn-success">前へ</button>
           <button v-if="!islastPage" @click="changePage(+1)" class="btn btn-success">次へ</button>
-        </div>
+        </div> -->
       </template>
       <p v-else>計算結果ログはまだ存在しません。</p>
     </div><!-- log -->
@@ -32,9 +33,14 @@
 </template>
 
 <script>
+import Pagination from '../components/PaginationComponent.vue'
+
 const axios = require('axios')
 
 export default {
+  components: {
+    Pagination,
+  },
   data: function() {
     return {
       logs: [],
@@ -87,19 +93,5 @@ export default {
       this.getLogs()
     }
   },
-  computed: {
-    /**
-     * 先頭ページ判定
-     */
-    isFirstPage: function() {
-      return this.current_page === 1
-    },
-    /**
-     * 末尾ページ判定
-     */
-    islastPage: function() {
-      return this.current_page === this.last_page
-    },
-  }
 }
 </script>
