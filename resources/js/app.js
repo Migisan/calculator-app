@@ -1,5 +1,5 @@
 import Vue from 'vue'
-// import './bootstrap'
+import './bootstrap'
 import router from './router'
 import App from './App.vue'
 

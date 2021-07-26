@@ -14,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+/**
+ * 計算結果ログ
+ */
+Route::get('/logs', 'LogController@index');
+Route::post('/logs/store', 'LogController@store');
+Route::delete('/logs/{id}', 'LogController@delete');
+
+/**
+ * その他
+ */
+// トークンリフレッシュ
+Route::get('/reflesh-token', function(Illuminate\Http\Request $request) {
+    $request->session()->regenerateToken();
+    return response()->json();
 });

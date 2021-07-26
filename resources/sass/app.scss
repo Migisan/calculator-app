@@ -8,6 +8,9 @@
 @import '~bootstrap/scss/bootstrap';
 
 // Styles
+@import 'mixin';
 @import 'base';
 @import 'header';
 @import 'calculator';
+@import 'log';
+@import 'error-page';

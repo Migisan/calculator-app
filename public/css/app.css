@@ -10942,6 +10942,8 @@ a.text-dark:focus {
   }
 }
 
+/* テーブル初期レイアウト */
+
 html {
   padding: 0px;
   margin: 0px;
@@ -10952,7 +10954,6 @@ body {
   margin: 0px;
   font-family: "Avenir", "Helvetica Neue", "Helvetica", "Arial", "Hiragino Sans", "\30D2\30E9\30AE\30CE\89D2\30B4\30B7\30C3\30AF", YuGothic, "Yu Gothic", "\30E1\30A4\30EA\30AA", Meiryo, "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", "MS PGothic";
   color: #333;
-  background: #c9f0ff;
   font-size: 16px;
 }
 
@@ -11092,5 +11093,51 @@ img {
   margin: 10px;
   border-radius: 20px;
   font-weight: bold;
+}
+
+.store {
+  width: calc(100% - 20px);
+  margin: 0 10px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.log {
+  max-width: 1000px;
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+.log table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.log table th,
+.log table td {
+  border: 1px solid #999;
+}
+
+.log table th {
+  background: #c9f0ff;
+}
+
+.log table td {
+  background: #fff;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 0;
+}
+
+.pagination button {
+  margin: 0 5px;
+}
+
+.error-page {
+  margin: 20px 0 0;
+  text-align: center;
 }
 

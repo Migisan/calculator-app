@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 import Calculator from './pages/Calculator.vue'
 import Log from './pages/Log.vue'
-// import NotFound from './pages/errors/NotFound.vue'
+import NotFound from './pages/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -16,17 +16,14 @@ const routes = [
     path: '/log',
     component: Log,
   },
-  // {
-  //   path: '*',
-  //   component: NotFound
-  // },
+  {
+    path: '*',
+    component: NotFound
+  },
 ]
 
 const router = new VueRouter({
   mode: 'history',
-  // scrollBehavior() {
-  //   return { x: 0, y: 0 }
-  // },
   routes
 })
 

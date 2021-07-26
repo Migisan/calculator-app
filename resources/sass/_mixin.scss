@@ -1,0 +1,13 @@
+/* テーブル初期レイアウト */
+@mixin table-layout($border-size: 1px, $border-color: #000, $th-w: 30%, $td-w: 70%){
+  border-collapse: collapse;
+  th, td{
+    border: $border-size solid $border-color;
+  }
+  th{
+    width: $th-w;
+  }
+  td{
+    width: $td-w;
+  }
+}
