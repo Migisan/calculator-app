@@ -2023,6 +2023,7 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      formula: '',
       output: '',
       items: [['7', '8', '9', '/'], ['4', '5', '6', '*'], ['1', '2', '3', '-'], ['0', '.', 'C', '+']]
     };
@@ -2054,6 +2055,7 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 
       if (item === 'C') {
+        this.formula = '';
         this.output = '';
       } else {
         this.output += item;
@@ -2069,6 +2071,7 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
       } // 計算
 
 
+      this.formula = this.output;
       this.output = String(eval(this.output)); // 保存ボタン有効化
 
       document.getElementById('store').disabled = false;
@@ -2077,9 +2080,15 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
       var _this = this;
 
       // バリデーション
+      var formula_len = this.formula.length;
       var output_array = this.output.toString().split('.');
       var is_decimal = output_array[1] ? true : false;
       var store_flag = false;
+
+      if (formula_len <= 0 || formula_len > 255) {
+        alert('計算式の長さは255文字以下にしてください。');
+        return;
+      }
 
       if (is_decimal) {
         var number_len = output_array[0].length + output_array[1].length;
@@ -2087,21 +2096,22 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
         store_flag = number_len <= 8 && decimal_len <= 2 ? true : false;
 
         if (!store_flag) {
-          alert('有効桁数8桁かつ小数点以下2桁までの数値しか保存できません。');
+          alert('有効桁数8桁かつ小数点以下2桁までの小数点数しか保存できません。');
           return;
         }
       } else {
         var _number_len = output_array[0].length;
-        store_flag = _number_len <= 8 ? true : false;
+        store_flag = _number_len <= 6 ? true : false;
 
         if (!store_flag) {
-          alert('有効桁数8桁までの数値しか保存できません。');
+          alert('有効桁数6桁までの整数しか保存できません。');
           return;
         }
       } // 登録処理
 
 
       axios.post('/api/logs/store', {
+        formula: this.formula,
         result: this.output
       }).then(function (res) {
         console.log(res);
@@ -2109,6 +2119,7 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
         if (res.data.res === "success") {
           alert('計算結果を保存しました。'); // リセット
 
+          _this.formula = '';
           _this.output = '';
           document.getElementById('store').disabled = true;
         } else {
@@ -2134,6 +2145,8 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_PaginationComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/PaginationComponent.vue */ "./resources/js/components/PaginationComponent.vue");
+//
+//
 //
 //
 //
@@ -3621,26 +3634,7 @@ var render = function() {
       { staticClass: "calculator" },
       [
         _c("div", { staticClass: "top" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.output,
-                expression: "output"
-              }
-            ],
-            attrs: { type: "text" },
-            domProps: { value: _vm.output },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.output = $event.target.value
-              }
-            }
-          })
+          _c("span", [_vm._v(_vm._s(_vm.output))])
         ]),
         _vm._v(" "),
         _vm._l(_vm.items, function(row, rowKey) {
@@ -3733,6 +3727,8 @@ var render = function() {
                     return _c("tr", { key: key }, [
                       _c("td", [_vm._v(_vm._s(log.id))]),
                       _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(log.formula))]),
+                      _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(Number(log.result)))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(log.created_at))]),
@@ -3779,6 +3775,8 @@ var staticRenderFns = [
     return _c("thead", [
       _c("tr", [
         _c("th", [_vm._v("ID")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("計算式")]),
         _vm._v(" "),
         _c("th", [_vm._v("計算結果")]),
         _vm._v(" "),

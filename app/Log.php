@@ -18,7 +18,7 @@ class Log extends Model
     /**
      * ホワイトリスト
      */
-    protected $fillable = ['result'];
+    protected $fillable = ['formula', 'result'];
 
     /**
      * JSON serialization

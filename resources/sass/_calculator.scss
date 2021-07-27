@@ -13,14 +13,17 @@
   height: 100px;
   margin-bottom: 10px;
   background: $c-gradient;
-  input {
+  overflow: hidden;
+  span {
     color: $c-white;
-    width: 100%;
+    float: right;
     height: 100%;
+    line-height: 84px;
     padding: 8px;
     border-radius: 8px;
     text-align: right;
     font-size: 24px;
+    white-space: nowrap;
   }
 }
 

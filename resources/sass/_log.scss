@@ -10,11 +10,15 @@
     width: 100%;
     th, td{
       border: 1px solid $c-gray;
+      @include mobile {
+        font-size: 14px;
+      }
     }
     th {
       background: $c-water;
     }
     td {
+      word-break: break-all;
       background: $c-white;
     }
   }

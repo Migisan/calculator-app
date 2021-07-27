@@ -7,6 +7,7 @@
           <thead>
             <tr>
               <th>ID</th>
+              <th>計算式</th>
               <th>計算結果</th>
               <th>保存日時</th>
               <th>削除ボタン</th>
@@ -15,6 +16,7 @@
           <tbody>
             <tr v-for="(log, key) in logs" :key="key">
               <td>{{ log.id }}</td>
+              <td>{{ log.formula }}</td>
               <td>{{ Number(log.result) }}</td>
               <td>{{ log.created_at }}</td>
               <td><button @click="del(log.id)" class="btn btn-danger">削除</button></td>

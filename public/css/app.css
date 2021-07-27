@@ -11072,16 +11072,19 @@ img {
   height: 100px;
   margin-bottom: 10px;
   background: linear-gradient(#39C5E6, #0080F1);
+  overflow: hidden;
 }
 
-.top input {
+.top span {
   color: #fff;
-  width: 100%;
+  float: right;
   height: 100%;
+  line-height: 84px;
   padding: 8px;
   border-radius: 8px;
   text-align: right;
   font-size: 24px;
+  white-space: nowrap;
 }
 
 .items {
@@ -11145,11 +11148,19 @@ img {
   border: 1px solid #999;
 }
 
+@media screen and (max-width: 559px) {
+  .log table th,
+  .log table td {
+    font-size: 14px;
+  }
+}
+
 .log table th {
   background: #c9f0ff;
 }
 
 .log table td {
+  word-break: break-all;
   background: #fff;
 }
 

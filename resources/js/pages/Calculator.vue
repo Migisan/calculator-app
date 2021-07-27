@@ -2,7 +2,7 @@
   <div>
     <div class="calculator">
       <div class="top">
-        <input type="text" v-model="output">
+        <span>{{ output }}</span>
       </div>
       <ul v-for="(row, rowKey) in items" :key="rowKey" class="items">
         <li v-for="(item, itemKey) in row" :key="itemKey" class="item">
@@ -21,6 +21,7 @@ const axios = require('axios')
 export default {
   data: function() {
     return {
+      formula: '',
       output: '',
       items: [
         ['7', '8', '9', '/'],
@@ -55,6 +56,7 @@ export default {
 
       // 計算
       if(item === 'C') {
+        this.formula = ''
         this.output = ''
       }else {
         this.output += item
@@ -70,6 +72,7 @@ export default {
       }
 
       // 計算
+      this.formula = this.output
       this.output = String(eval(this.output))
 
       // 保存ボタン有効化
@@ -77,33 +80,39 @@ export default {
     },
     store: function() {
       // バリデーション
+      let formula_len = this.formula.length
       let output_array = this.output.toString().split('.')
       let is_decimal = output_array[1] ? true : false
       let store_flag = false
 
+      if(formula_len <= 0 || formula_len > 255) {
+        alert('計算式の長さは255文字以下にしてください。')
+        return
+      }
       if(is_decimal) {
         let number_len = output_array[0].length + output_array[1].length
         let decimal_len = output_array[1].length
         store_flag = (number_len <= 8) && (decimal_len <= 2) ? true : false
         if(!store_flag) {
-          alert('有効桁数8桁かつ小数点以下2桁までの数値しか保存できません。')
+          alert('有効桁数8桁かつ小数点以下2桁までの小数点数しか保存できません。')
           return
         }
       } else {
         let number_len = output_array[0].length
-        store_flag = number_len <= 8 ? true : false
+        store_flag = number_len <= 6 ? true : false
         if(!store_flag) {
-          alert('有効桁数8桁までの数値しか保存できません。')
+          alert('有効桁数6桁までの整数しか保存できません。')
           return
         }
       }
 
       // 登録処理
-      axios.post('/api/logs/store', {result: this.output}).then(res => {
+      axios.post('/api/logs/store', {formula: this.formula, result: this.output}).then(res => {
         console.log(res)
         if(res.data.res === "success") {
           alert('計算結果を保存しました。')
           // リセット
+          this.formula = ''
           this.output = ''
           document.getElementById('store').disabled = true
         } else {
