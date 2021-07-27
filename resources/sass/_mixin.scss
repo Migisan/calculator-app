@@ -1,13 +1,24 @@
-/* テーブル初期レイアウト */
-@mixin table-layout($border-size: 1px, $border-color: #000, $th-w: 30%, $td-w: 70%){
-  border-collapse: collapse;
-  th, td{
-    border: $border-size solid $border-color;
+/* ブレイクポイント */
+$pc-min: 960px; // PC
+$tb-max: 959px; // タブレット
+$mb-max: 559px; // スマホ
+
+/* @mediaのフォーマット */
+// PCのみ
+@mixin pc {
+  @media screen and (min-width: $pc-min) {
+    @content;
   }
-  th{
-    width: $th-w;
+}
+// タブレット
+@mixin tablet {
+  @media screen and (max-width: $tb-max) {
+    @content;
   }
-  td{
-    width: $td-w;
+}
+// スマホ
+@mixin mobile {
+  @media screen and (max-width: $mb-max) {
+    @content;
   }
 }

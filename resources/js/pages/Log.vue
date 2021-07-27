@@ -22,10 +22,6 @@
           </tbody>
         </table>
         <Pagination :current_page="current_page" :last_page="last_page" @catchPage="changePage"></Pagination>
-        <!-- <div class="pagination">
-          <button v-if="!isFirstPage" @click="changePage(-1)" class="btn btn-success">前へ</button>
-          <button v-if="!islastPage" @click="changePage(+1)" class="btn btn-success">次へ</button>
-        </div> -->
       </template>
       <p v-else>計算結果ログはまだ存在しません。</p>
     </div><!-- log -->

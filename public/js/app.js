@@ -2078,12 +2078,10 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
       // バリデーション
       var output_array = this.output.toString().split('.');
-      console.log(output_array);
       var is_decimal = output_array[1] ? true : false;
       var store_flag = false;
 
       if (is_decimal) {
-        console.log("浮動小数点数");
         var number_len = output_array[0].length + output_array[1].length;
         var decimal_len = output_array[1].length;
         store_flag = number_len <= 8 && decimal_len <= 2 ? true : false;
@@ -2093,7 +2091,6 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
           return;
         }
       } else {
-        console.log("整数");
         var _number_len = output_array[0].length;
         store_flag = _number_len <= 8 ? true : false;
 
@@ -2137,10 +2134,6 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_PaginationComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/PaginationComponent.vue */ "./resources/js/components/PaginationComponent.vue");
-//
-//
-//
-//
 //
 //
 //

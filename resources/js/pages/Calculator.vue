@@ -78,11 +78,10 @@ export default {
     store: function() {
       // バリデーション
       let output_array = this.output.toString().split('.')
-      console.log(output_array)
       let is_decimal = output_array[1] ? true : false
       let store_flag = false
+
       if(is_decimal) {
-        console.log("浮動小数点数")
         let number_len = output_array[0].length + output_array[1].length
         let decimal_len = output_array[1].length
         store_flag = (number_len <= 8) && (decimal_len <= 2) ? true : false
@@ -91,7 +90,6 @@ export default {
           return
         }
       } else {
-        console.log("整数")
         let number_len = output_array[0].length
         store_flag = number_len <= 8 ? true : false
         if(!store_flag) {

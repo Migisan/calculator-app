@@ -17,8 +17,11 @@ use Illuminate\Support\Facades\Route;
 /**
  * 計算結果ログ
  */
+// ログ一覧
 Route::get('/logs', 'LogController@index');
+// ログ保存
 Route::post('/logs/store', 'LogController@store');
+// ログ削除
 Route::delete('/logs/{id}', 'LogController@delete');
 
 /**

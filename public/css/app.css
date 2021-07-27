@@ -10942,7 +10942,9 @@ a.text-dark:focus {
   }
 }
 
-/* テーブル初期レイアウト */
+/* ブレイクポイント */
+
+/* @mediaのフォーマット */
 
 html {
   padding: 0px;
@@ -11021,6 +11023,12 @@ img {
   color: #fff;
 }
 
+@media screen and (max-width: 559px) {
+  .header .header-inner h1 a {
+    font-size: 20px;
+  }
+}
+
 .header .header-inner nav ul {
   display: flex;
 }
@@ -11029,11 +11037,24 @@ img {
   margin-right: 10px;
 }
 
+@media screen and (max-width: 559px) {
+  .header .header-inner nav ul li:not(:last-child) {
+    margin-right: 4px;
+  }
+}
+
 .header .header-inner nav ul li a {
   display: inline-block;
   padding: 5px 10px;
   color: #fff;
   font-size: 20px;
+}
+
+@media screen and (max-width: 559px) {
+  .header .header-inner nav ul li a {
+    padding: 0 4px;
+    font-size: 16px;
+  }
 }
 
 .calculator {
@@ -11106,6 +11127,12 @@ img {
   max-width: 1000px;
   margin: 20px auto 0;
   text-align: center;
+}
+
+@media screen and (max-width: 559px) {
+  .log {
+    padding: 0 10px;
+  }
 }
 
 .log table {
